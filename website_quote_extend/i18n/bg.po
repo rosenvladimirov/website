@@ -1,0 +1,364 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_quote_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 13:52+0000\n"
+"PO-Revision-Date: 2018-12-12 13:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "% discount"
+msgstr "% отстъпка"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "&amp;bull;"
+msgstr "&amp;bull;"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "<span class=\"label label-default\"><i class=\"fa fa-fw fa-check\"/><span class=\"hidden-xs\"> Paid</span></span>"
+msgstr "Платено"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "<span class=\"label label-default\"><i class=\"fa fa-fw fa-remove\"/><span class=\"hidden-xs\"> Cancelled</span></span>"
+msgstr "<span class=\"label label-default\"><i class=\"fa fa-fw fa-remove\"/><span class=\"hidden-xs\"> Отменена</span></span>"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "<span class=\"label label-info\"><i class=\"fa fa-fw fa-clock-o\"/><span class=\"hidden-xs\"> Waiting for Payment</span></span>"
+msgstr "<span class=\"label label-info\"><i class=\"fa fa-fw fa-clock-o\"/><span class=\"hidden-xs\"> В изчакване на плащането</span></span>"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "<strong>Subtotal:</strong>"
+msgstr "<strong>Междинна сума:</strong>"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "<strong>Total:</strong>"
+msgstr "<strong>Общо:</strong>"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_company_pickings
+msgid "Activity"
+msgstr "Дейност"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Amount"
+msgstr "Сума"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "Amount Due"
+msgstr "Оставаща сума"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.chatter_fix_fix
+msgid "Ask Changes"
+msgstr "Редакция"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Back to Sales Order"
+msgstr "Връщане към поръчка за продажба"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Canceled"
+msgstr "Отменен"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Cancelled"
+msgstr "Отменено"
+
+#. module: website_quote_extend
+#: model:ir.model.fields,field_description:website_quote_extend.field_stock_location_description
+msgid "Description"
+msgstr "Описание"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Discount"
+msgstr "Отстъпка"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Done"
+msgstr "Готов"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Draft"
+msgstr "Чернова"
+
+#. module: website_quote_extend
+#: code:addons/website_quote_extend/controllers/main.py:38
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+#, python-format
+msgid "Due Date"
+msgstr "Дата на падежа"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Edit Quote"
+msgstr "Редактирай Заявката"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Error"
+msgstr "Грешка"
+
+#. module: website_quote_extend
+#: code:addons/website_quote_extend/controllers/main.py:163
+#, python-format
+msgid "If we store your payment information on our server, subscription payments will be made automatically."
+msgstr "Ако съхраняваме данните си за плащане на нашия сървър, плащанията за абонаменти ще се извършват автоматично."
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "In Progress"
+msgstr "В процес"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "In Speditor"
+msgstr "Предадено към спедитор"
+
+#. module: website_quote_extend
+#: model:ir.model,name:website_quote_extend.model_stock_location
+msgid "Inventory Locations"
+msgstr "Обекти за инвентаризация"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "Invoice #"
+msgstr "Фактура #"
+
+#. module: website_quote_extend
+#: code:addons/website_quote_extend/controllers/main.py:37
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+#, python-format
+msgid "Invoice Date"
+msgstr "Дата на фактура"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Invoice Status:"
+msgstr "Статус на фактурата:"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "Invoices"
+msgstr "Фактури"
+
+#. module: website_quote_extend
+#: model:ir.model.fields,field_description:website_quote_extend.field_sale_order_order_status
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_company_pickings
+msgid "Order Status"
+msgstr "Статус на Поръчка"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Paid"
+msgstr "Платено"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Payment is authorized"
+msgstr "Плащането е разрешено от посредника"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Payment mode:"
+msgstr "Начин на плащане:"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Pending payment"
+msgstr "Очакване на плащане"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Print"
+msgstr "Печат"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Pro-forma"
+msgstr "Про-форма"
+
+#. module: website_quote_extend
+#: model:ir.model,name:website_quote_extend.model_product_product
+msgid "Product"
+msgstr "Продукт"
+
+#. module: website_quote_extend
+#: model:ir.model,name:website_quote_extend.model_product_template
+msgid "Product Template"
+msgstr "Шаблон за продукт"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Products"
+msgstr "Продукти"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.website_description
+msgid "Products Description"
+msgstr "Описание на продуктите"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: website_quote_extend
+#: model:ir.model,name:website_quote_extend.model_sale_order
+msgid "Quotation"
+msgstr "Заявка"
+
+#. module: website_quote_extend
+#: code:addons/website_quote_extend/controllers/main.py:105
+#, python-format
+msgid "Quotation viewed by customer"
+msgstr "Цитат, разглеждан от клиента"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Ready"
+msgstr "Готово"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Recomended Price"
+msgstr "Препоръчана цена"
+
+#. module: website_quote_extend
+#: code:addons/website_quote_extend/controllers/main.py:39
+#, python-format
+msgid "Reference"
+msgstr "Препратка"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Refunded"
+msgstr "Възтановена"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Refunding"
+msgstr "Възтановяване"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.chatter_fix
+msgid "Reject"
+msgstr "Отказ"
+
+#. module: website_quote_extend
+#: model:ir.model,name:website_quote_extend.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ред от нареждане за продажба"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_company_pickings
+msgid "Scheduled Date"
+msgstr "Дата за изпълнение"
+
+#. module: website_quote_extend
+#: code:addons/website_quote_extend/controllers/main.py:40
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_company_pickings
+#, python-format
+msgid "Status"
+msgstr "Статус"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Taxes"
+msgstr "Данъци"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Taxes:"
+msgstr "ДДС:"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_my_invoices_extend
+msgid "There are currently no invoices and payments for your account."
+msgstr "Ако съхраняваме данните си за плащане на нашия сървър, плащанията за абонаменти ще се извършват автоматично."
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_company_pickings
+msgid "There are currently no started picking operation for your Quotation."
+msgstr "Понастоящем не е започнала операция в складовете за Вашата поръчка."
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Total Price"
+msgstr "Обща цена"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.pricing_extend
+msgid "Unit Price"
+msgstr "Единична цена"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Waiting"
+msgstr "В очакване"
+
+#. module: website_quote_extend
+#: selection:sale.order,order_status:0
+msgid "Waiting Another Operation"
+msgstr "В изчакване"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.portal_company_pickings
+msgid "Warehouse worker"
+msgstr "Складов работник"
+
+#. module: website_quote_extend
+#: model:ir.model.fields,field_description:website_quote_extend.field_sale_order_website_list_amount
+msgid "Website List Amount"
+msgstr "Списъ на стойностите "
+
+#. module: website_quote_extend
+#: model:ir.model.fields,field_description:website_quote_extend.field_sale_order_line_website_price_difference
+msgid "Website price difference"
+msgstr "Ценова разлика за уебсайта"
+
+#. module: website_quote_extend
+#: model:ir.model.fields,field_description:website_quote_extend.field_product_product_website_list_price
+#: model:ir.model.fields,field_description:website_quote_extend.field_product_template_website_list_price
+#: model:ir.model.fields,field_description:website_quote_extend.field_sale_order_line_website_list_price
+msgid "Website public price"
+msgstr "Публична цена на уебсайта"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.view_location_description_form
+msgid "What are  the activities in this location. e.g. Picking"
+msgstr "Какви са дейностите на това място. например Избиране"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Your Order"
+msgstr "Поръчка"
+
+#. module: website_quote_extend
+#: model:ir.ui.view,arch_db:website_quote_extend.so_quotation_content_extend
+msgid "Your Quotation"
+msgstr "Поръчка"
+

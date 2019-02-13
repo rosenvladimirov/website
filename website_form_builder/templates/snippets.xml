@@ -82,6 +82,9 @@
                         <li data-add_custom_field="binary" data-no-preview="true">
                             <a tabindex="-1">File upload</a>
                         </li>
+                        <li data-add_custom_field="g-recaptcha-response" data-no-preview="true">
+                            <a tabindex="-1">Google recaptcha</a>
+                        </li>
                     </ul>
                 </li>
             </div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_lang_form_image" model="ir.ui.view">
+            <field name="name">res.lang.form.image</field>
+            <field name="model">res.lang</field>
+            <field name="inherit_id" ref="base.res_lang_form" />
+            <field name="arch" type="xml">
+                <field name="iso_code" position="after">
+                    <field name="country_id"/>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

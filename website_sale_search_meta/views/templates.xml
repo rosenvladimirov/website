@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_seo_product" inherit_id="website_sale.product" active="True" name="View Product SEO">
+        <xpath expr="//t[@t-set='head']" position="inside">
+            <t t-if="product.website_meta_keyword_ids">
+                <meta name="keywords" t-att-content="', '.join([x.website_meta_keywords for x in product.website_meta_keyword_ids])"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

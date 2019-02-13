@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="modal_fixing"  inherit_id="website_sale_options.modal" name="Optional Products Added Subtotal">
+        <xpath expr="//th[@class='text-center td-price']">
+            <th>Subtotal</th>
+        </xpath>
+        <xpath expr="//td[@name='price']" position="after">
+            <td class="text-center td-subtotal" name="subtotal">
+                <span t-field="line.price_subtotal" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'from_currency': website_sale_order.pricelist_id.currency_id, 'display_currency': website.currency_id}" groups="sale.group_show_price_subtotal" />
+                <span t-esc="line.price_subtotal+line.price_tax" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'from_currency': website_sale_order.pricelist_id.currency_id, 'display_currency': website.currency_id}" groups="sale.group_show_price_total" />
+            </td>
+        </xpath>
+    </template>
+</odoo>

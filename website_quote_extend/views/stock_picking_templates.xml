@@ -1,0 +1,30 @@
+<odoo>
+    <template id="portal_company_pickings" name="Company activites for my Quotation">
+        <h1 class="page-header">Order Status</h1>
+        <t t-if="not pickings">
+            <p>There are currently no started picking operation for your Quotation.</p>
+        </t>
+        <div t-if="pickings" class="panel panel-default">
+            <div class="table-responsive">
+                <table class="table table-hover o_portal_my_doc_table">
+                    <thead>
+                        <tr class="active">
+                            <th>Activity</th>
+                            <th>Scheduled Date</th>
+                            <th>Warehouse worker</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="pickings" t-as="picking">
+                        <tr>
+                            <td><span t-field="picking.location_dest_id.description"/></td>
+                            <td><span t-field="picking.scheduled_date"/></td>
+                            <td><span t-field="picking.user_id"/></td>
+                            <td><span t-field="picking.state"/></td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_sale_horizontal_attributes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 13:53+0000\n"
+"PO-Revision-Date: 2018-12-12 13:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes
+msgid "&amp;times;"
+msgstr "&amp;times;"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes
+msgid "<i class=\"fa fa-filter pull-left\"/>Filters"
+msgstr "<i class=\"fa fa-filter pull-left\"/>Filters"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes
+msgid "<span>Clear all filters</span> <i class=\"fa fa-eraser\" aria-hidden=\"true\"/>"
+msgstr "<span>Clear all filters</span> <i class=\"fa fa-eraser\" aria-hidden=\"true\"/>"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes_sortby
+msgid "<span>Sort by</span>\n"
+"                        <span class=\"caret\"/>"
+msgstr "Сортирай&amp;nbsp;<span class=\"caret\"/>"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes_sortby
+msgid "Catalog price: High to Low"
+msgstr "<span lang=\"BG\" style=\"font-size:11.0pt;font-family:&#10;&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;&#10;mso-ansi-language:BG;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">По\n"
+"цена: От висока към ниска</span>"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes_sortby
+msgid "Catalog price: Low to High"
+msgstr "<span lang=\"BG\" style=\"font-size:11.0pt;font-family:&#10;&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;&#10;mso-ansi-language:BG;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">По цена:\n"
+"От ниска към висока</span><br/>"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes_sortby
+msgid "Name - A to Z"
+msgstr "<span lang=\"BG\" style=\"font-size:11.0pt;font-family:&#10;&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;&#10;mso-ansi-language:BG;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">По\n"
+"име: А - Я</span>"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes_sortby
+msgid "Name - Z to A"
+msgstr "<span lang=\"BG\" style=\"font-size:11.0pt;font-family:&#10;&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;&#10;mso-ansi-language:BG;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">По\n"
+"име: Я - А</span>"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes
+msgid "Plase choice filter"
+msgstr "Plase choice filter"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.ui.view,arch_db:website_sale_horizontal_attributes.horizontal_products_attributes_sortby
+msgid "Sorting by :"
+msgstr "Сортирай :"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.model.fields,field_description:website_sale_horizontal_attributes.field_website_page_website_id_20553
+msgid "Website"
+msgstr "Уеб-страница"
+
+#. module: website_sale_horizontal_attributes
+#: model:ir.model,name:website_sale_horizontal_attributes.model_ir_ui_view
+msgid "ir.ui.view"
+msgstr "ir.ui.view"
+

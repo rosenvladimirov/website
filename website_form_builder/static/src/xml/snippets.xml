@@ -214,6 +214,15 @@
         </t>
     </t>
 
+    <t t-name="website_form_builder.field.g-recaptcha-response">
+        <t t-call="website_form_builder.field_wrapper">
+            <label class="col-md-3 col-sm-4 control-label" for="g-recaptcha-response">Human?</label>
+            <div class="col-md-7 col-sm-8">
+                <span t-att-name="name" class="o_website_form_recaptcha" />
+            </div>
+        </t>
+    </t>
+
     <t t-name="website_form_builder.section.send">
         <div class="form-group">
             <button type="button"
@@ -223,4 +232,6 @@
             <span id="o_website_form_result"/>
         </div>
     </t>
+
+
 </template>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="products_add_to_cart_fixed" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Add to Cart Fixed">
+        <xpath expr="//div[@id='btn_group']" position="inside">
+            <input name="product_id" t-att-value="product.product_variant_id.id" type="hidden" />
+            <t t-if="len(product.product_variant_ids) == 1">
+                <a class="btn btn-default btn-xs a-submit">
+                    <span class="fa fa-shopping-cart" />
+                </a>
+            </t>
+            <t t-if="len(product.product_variant_ids) &gt; 1">
+                <a class="btn btn-default btn-xs" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))">
+                    <span class="fa fa-shopping-cart" />
+                </a>
+            </t>
+        </xpath>
+    </template>
+</odoo>

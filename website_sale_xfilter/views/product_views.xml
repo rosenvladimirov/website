@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_variant_easy_edit_filter_view" model="ir.ui.view">
+        <field name="name">product.product.filter.view.form.easy</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='packaging']" position="before">
+                <group name="x-filter" string="Website X-Filters">
+                    <field name="website_filter_ids" widget="many2many_tags" string="X-Filters"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

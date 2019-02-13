@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <template id="horizontal_products_attributes" inherit_id="website_sale.products" active="True" customize_show="True" name="Horizontal Attribute's Filters">
+        <xpath expr="//div[@id='products_grid_before']" position="before">
+            <button class="btn btn-primary" style="z-index: 1250; width:25%; margin-left:15px; border-radius: 0;" data-toggle="collapse" data-target="#horizontal_products_attributes">
+                <i class="fa fa-filter pull-left"/>Filters
+            </button>
+
+            <div t-if="attrib_visible_all or attrib_values" id="horizontal_products_attributes" class="collapse" style="position: fixed; z-index: 1000; top: 25%; left: 25%; min-width: 60em; max-width: 80em;">
+            <div class="panel panel-primary" style="box-shadow: rgb(136, 136, 136) 5px 5px 18px; border-radius: 0;">
+                <div class="panel-heading" style="border-radius: 0;">
+                    <button class="btn btn-primary pull-right" style="padding: 0em 0.2em 0em 0.2em; border-radius: 50%; border: none;" data-toggle="collapse" data-target="#horizontal_products_attributes" aria-label="Close The filters box">&amp;times;</button>
+                    <h3 class="panel-title">Plase choice filter</h3>
+                </div>
+                <div class="panel-body" style="border-radius: 0;">
+                <form class="js_attributes" method="get">
+                    <div class="navbar navbar-default" style="background-color: none !important; border: none !important;">
+                        <div class="collapse navbar-collapse horizontal_products_attributes">
+                            <ul class="nav nav-pills" role="tablist" id="filter_navbar">
+                                <t t-foreach="attrib_visible_all" t-as="a">
+                                    <t t-if="a.type != 'hidden'">
+                                        <li class="dropdown" role="presentation" t-att-class="'active' if a.id in [x[0] for x in attrib_values] else None" style="border-radius: 0 !important;">
+                                            <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" style="border-radius: 0;" data-toggle="dropdown" href="#" role="button">
+                                                <span t-field="a.name"/> <span class="badge" t-esc="len(a.value_ids)"/> <span class="caret"/>
+                                            </a>
+                                            <ul class="dropdown-menu" style="overflow-y:auto; max-height:350px">
+                                                <t t-if="a.type in ('radio', 'select')">
+                                                    <t t-foreach="a.value_ids" t-as="v">
+                                                        <li t-att-class="'active' if v.id in attrib_set else None">
+                                                            <label style="margin: 0 20px;">
+                                                                <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None"/>
+                                                                <span style="font-weight: normal" t-field="v.name"/>
+                                                            </label>
+                                                        </li>
+                                                    </t>
+                                                </t>
+                                                <li style="padding-left: 6px;">
+                                                    <t t-if="a.type == 'color'">
+                                                        <t t-foreach="a.value_ids" t-as="v">
+                                                            <label t-attf-style="background-color:#{v.html_color or v.name}" t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+                                                                <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None" t-att-title="v.name"/>
+                                                            </label>
+                                                        </t>
+                                                    </t>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </t>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+                <!-- Start rending filters -->
+                <t t-if="attrib_values">
+                    <ul class="list-inline pull-left" style="padding-left: 15px;">
+                        <t t-foreach="attrib_visible_all" t-as="a">
+                            <li t-if="a.id in [x[0] for x in attrib_values]">
+                                <label t-field="a.name"/>:
+                                <t t-foreach="a.value_ids" t-as="v">
+                                    <t t-if="a.type == 'color'">
+                                        <label t-if="v.id in [x[1] for x in attrib_values]" t-attf-style="background-color:#{v.html_color or v.name}; height: 34px; width: 34px;"/>
+                                    </t>
+                                    <t t-if="a.type in ('radio', 'select')">
+                                        <span t-if="v.id in [x[1] for x in attrib_values]" t-field="v.name"/>
+                                    </t>
+                                </t>
+                            </li>
+                        </t>
+                        <li id="clear_all">
+                            <a href="/shop"><span>Clear all filters</span> <i class="fa fa-eraser" aria-hidden="true"/></a>
+                        </li>
+                    </ul>
+                </t>
+                </div>
+                <!--
+                <div class="panel-footer">
+                    <div class="row">
+                        <ul class="list-inline pull-right">
+                            <li id="clear_all">
+                                <a href="/shop"><span>Clear all filters</span> <i class="fa fa-eraser" aria-hidden="true"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                -->
+            </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="horizontal_products_attributes_sortby" inherit_id="website_sale_horizontal_attributes.horizontal_products_attributes" active="True" customize_show="True" name="Show 'Sort by'">
+        <xpath expr="//li[@id='clear_all']" position="before">
+            <t t-set="list_price_desc_label">Catalog price: High to Low</t>
+            <t t-set="list_price_asc_label">Catalog price: Low to High</t>
+            <t t-set="name_asc_label">Name - A to Z</t>
+            <t t-set="name_desc_label">Name - Z to A</t>
+            <t t-set="website_sale_sortable" t-value="[
+                (list_price_desc_label, 'list_price desc'),
+                (list_price_asc_label, 'list_price asc'),
+                (name_asc_label, 'name asc'),
+                (name_desc_label, 'name desc')
+            ]"/>
+            <t t-set="website_sale_sortable_current" t-value="[sort for sort in website_sale_sortable if sort[1]==request.params.get('order', '')]"/>
+            <li class="divider hidden-sm hidden-md hidden-lg"/>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <t t-if='len(website_sale_sortable_current)'>
+                        <span>Sorting by : <t t-raw='website_sale_sortable_current[0][0]'/></span>
+                    </t>
+                    <t t-else='1'>
+                        <span>Sort by</span>
+                        <span class="caret"></span>
+                    </t>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li t-foreach="website_sale_sortable" t-as="sortby">
+                        <a t-att-href="keep('/shop', order=sortby[1])">
+                            <span t-raw="sortby[0]"/>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <style>
+                .dropdown_sorty_by
+                {
+                    display: none!important;
+                }
+            </style>
+        </xpath>
+    </template>
+
+    <template id="horizontal_products_attributes_pricelist" inherit_id="website_sale_horizontal_attributes.horizontal_products_attributes" active="True" customize_show="True" name="Show Pricelist">
+        <xpath expr="//li[@id='clear_all']" position="before">
+            <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)" />
+            <li class="divider hidden-sm hidden-md hidden-lg"/>
+            <li t-attf-class="#{website_sale_pricelists and len(website_sale_pricelists)&gt;1 and 'dropdown' or 'hidden'}">
+                <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
+                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                    <t t-esc="curr_pl and curr_pl.name or ' - '" />
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li t-foreach="website_sale_pricelists" t-as="pl">
+                        <a t-att-href="'/shop/change_pricelist/%s' % pl.id">
+                            <span class="switcher_pricelist" t-att-data-pl_id="pl.id" t-esc="pl.name" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <style>
+                #wrap > div.container.oe_website_sale > div:nth-child(1) > div > div:nth-child(2)
+                {
+                    display: none!important;
+                }
+            </style>
+        </xpath>
+    </template>
+</odoo>

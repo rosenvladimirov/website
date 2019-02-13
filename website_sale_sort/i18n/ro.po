@@ -1,0 +1,102 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_sale_sort
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 10:48+0000\n"
+"PO-Revision-Date: 2018-12-12 10:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_sale_sort
+#: model:ir.model,name:website_sale_sort.model_product_public_category_sort
+msgid "Auto sort by e-comerce category"
+msgstr "Auto sort by e-comerce category"
+
+#. module: website_sale_sort
+#: model:ir.ui.view,arch_db:website_sale_sort.website_category_sort
+msgid "Cancel"
+msgstr "Anuleaza"
+
+#. module: website_sale_sort
+#: model:ir.ui.view,arch_db:website_sale_sort.website_category_sort
+msgid "Choice type for sorting"
+msgstr "Choice type for sorting"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_create_uid
+msgid "Created by"
+msgstr "Creat de"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_create_date
+msgid "Created on"
+msgstr "Creat la"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_display_name
+msgid "Display Name"
+msgstr "Nume Afişat"
+
+#. module: website_sale_sort
+#: model:ir.actions.act_window,name:website_sale_sort.action_website_category_sort
+msgid "E-Commerce cat sort"
+msgstr "E-Commerce cat sort"
+
+#. module: website_sale_sort
+#: selection:product.public.category.sort,sort_by_type:0
+msgid "E-Commerce category"
+msgstr "E-Commerce category"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_sale_sort
+#: selection:product.public.category.sort,sort_by_type:0
+msgid "Internal category"
+msgstr "Internal category"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort___last_update
+msgid "Last Modified on"
+msgstr "Ultima actualizare în"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizare făcută de"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizare la"
+
+#. module: website_sale_sort
+#: model:ir.model.fields,field_description:website_sale_sort.field_product_public_category_sort_sort_by_type
+msgid "Select type sort"
+msgstr "Select type sort"
+
+#. module: website_sale_sort
+#: model:ir.ui.view,arch_db:website_sale_sort.website_category_sort
+msgid "Sort"
+msgstr "Sort"
+
+#. module: website_sale_sort
+#: selection:product.public.category.sort,sort_by_type:0
+msgid "Sort by alphabetical order"
+msgstr "Sort by alphabetical order"
+
+#. module: website_sale_sort
+#: model:ir.ui.view,arch_db:website_sale_sort.website_category_sort
+msgid "Website Category Sort"
+msgstr "Website Category Sort"
+

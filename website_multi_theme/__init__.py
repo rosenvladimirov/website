@@ -1,6 +1,0 @@
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
-
-from . import models
-from . import wizards
-from . import controllers
-from .hooks import uninstall_hook

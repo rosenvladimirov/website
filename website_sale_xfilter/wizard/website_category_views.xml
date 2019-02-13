@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="website_category_sort" model="ir.ui.view">
+            <field name="name">website.category.sort.form</field>
+            <field name="model">product.public.category.sort</field>
+            <field name="arch" type="xml">
+                <form string="Website Category Sort">
+                    <label string="Choice type for sorting"/>
+                    <group>
+                        <field name="sort_by_type"/>
+                    </group>
+                    <footer>
+                        <button string="Sort" name="_process" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_website_category_sort"
+            name="E-Commerce cat sort"
+            res_model="product.public.category.sort"
+            src_model="product.template"
+            target="new"
+            key2="client_action_multi"
+            view_mode="form"
+            view_type="form" />
+
+    </data>
+</odoo>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <template id="option_filters" name="Filters &amp; Attributes">
+        <form class="js_attributes" method="get">
+            <input type="hidden" name="search" t-att-value="search"/>
+            <div class="panel panel-info mt8" style="padding-left:0px;">
+            <ul class="nav nav-pills nav-stacked nav-hierarchy" style="margin:3px">
+                <t t-foreach="attributes" t-as="a">
+                    <li t-if="a.value_ids and len(a.value_ids) &gt; 1">
+                        <div class="panel-heading" style="padding:0.2em;">
+<!--                        <i class="fa fa-chevron-down" data-toggle="collapse" t-att-data-target="'#%s' % a.id"/> -->
+                            <span t-field="a.name"/>
+                        </div>
+<!--                        <div t-att-class="'collapse in' if len(a) == 0 else 'collapse'" t-att-id="a.id"> -->
+                        <div class="panel-body">
+                            <t t-if="a.type == 'select'">
+                                <select class="form-control" name="attrib">
+                                    <option value="" />
+                                    <t t-foreach="a.value_ids" t-as="v">
+                                        <t t-if="v.id in attrib_visible">
+                                            <option t-att-value="'%s-%s' % (a.id,v.id)" t-esc="v.name" t-att-selected="v.id in attrib_set" />
+                                        </t>
+                                    </t>
+                                </select>
+                            </t>
+                            <t t-if="a.type == 'radio'">
+                                <ul class="nav nav-pills nav-stacked" style="margin-left:5px">
+                                    <t t-foreach="a.value_ids" t-as="v">
+                                        <t t-if="v.id in attrib_visible">
+                                            <li t-att-class="'active' if v.id in attrib_set else None">
+                                                <label style="margin:0;">
+                                                    <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None" />
+                                                    <span style="font-weight: normal" t-field="v.name" />
+                                                </label>
+                                            </li>
+                                        </t>
+                                    </t>
+                                </ul>
+                            </t>
+                            <t t-if="a.type == 'color'">
+                                <t t-foreach="a.value_ids" t-as="v">
+                                    <t t-if="v.id in attrib_visible">
+                                        <label t-attf-style="background-color:#{v.html_color or v.name}" t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+                                            <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None" t-att-title="v.name" />
+                                        </label>
+                                    </t>
+                                </t>
+                            </t>
+                        </div>
+<!--                        </div> -->
+                    </li>
+                </t>
+            </ul>
+            </div>
+        </form>
+    </template>
+    <!--
+    <template id="products_filters_categories" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Attribute's Filters &amp; Categories">
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <t t-call="website_sale_categories_filters.option_filters"/>
+        </xpath>
+    </template>
+    -->
+    <template id="option_collapse_categories_recursive_filters" name="Collapse Category Rewrite">
+        <li t-att-class="'active' if categ.id == int(category or 0) else None">
+            <i t-if="categ.child_id" t-attf-class="text-primary fa #{'fa fa-chevron-down' if categ.id in parent_category_ids else 'fa fa-chevron-right'}" style="width:5%;"/>
+            <a t-att-href="keep('/shop/category/' + slug(categ), category=0)" t-field="categ.name" t-att-style="'width:93%; border-radius: 0;' if categ.child_id else 'width:99%; border-radius: 0;'"></a>
+            <ul t-if="categ.child_id" class="nav nav-pills nav-stacked nav-hierarchy mt16" t-att-style="'display:block;' if categ.id in parent_category_ids else 'display:none;'">
+                <t t-foreach="categ.child_id" t-as="categ">
+                    <t t-call="website_sale_categories_collapse.option_collapse_categories_recursive_filters" />
+                    <!--
+                    <t t-if="not categ.child_id and categ.id == int(category or 0)">
+                        <t t-call="website_sale_categories_collapse.option_filters"/>
+                    </t>
+                    -->
+                </t>
+            </ul>
+        </li>
+    </template>
+    <template id="option_collapse_products_categories_filters" inherit_id="website_sale.products" name="Collapsible Category List &amp; Filters" active="False" customize_show="True">
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+        <div class="panel panel-primary hvrShadow brdMaterial" id="categAccor" style="padding:0; border:0; margin-bottom:0">
+            <div class="panel-heading" style="padding:0; margin:0; border:0">
+                <span class="btn btn-primary" style="width:100%" data-toggle="collapse" data-target="#categPanel, #filtrPanel" data-parent="#categAccor">
+                    <span class="pull-left fa fa-bars" style="margin-top: 1.76%;"/>Categories</span>
+            </div>
+            <div class="panel-body collapse in" id="categPanel" style="padding:0px">
+                <a t-att-href="keep('/shop',category=0)" class="o_not_editable btn btn-primary " style="width:100%; border-radius: 0;">All Products</a>
+                <div class="col-md-12 col-sm-12 col-xs-12 mt16 mb16">
+                    <ul class="nav nav-pills nav-stacked" id="o_shop_collapse_category">
+                        <t t-foreach="categories" t-as="categ">
+                            <t t-call="website_sale_categories_collapse.option_collapse_categories_recursive_filters"/>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-heading" style="padding:0; margin:0; border:0">
+                <span class="btn btn-primary" style="width:100%" data-toggle="collapse" data-target="#categPanel, #filtrPanel" data-parent="#categAccor">
+                    <span class="pull-left fa fa-filter" style="margin-top: 1.76%;"/>Filters</span>
+            </div>
+            <div class="panel-body collapse out" id="filtrPanel" style="padding-left:12px; padding-right:12px">
+                <t t-call="website_sale_categories_collapse.option_filters"/>
+            </div>
+        </div>
+        </xpath>
+        <xpath expr="//div[@id='products_grid_before']" position="attributes">
+            <attribute name="class">col-md-3 col-sm-4 col-xs-12</attribute>
+        </xpath>
+        <xpath expr="//div[@id='products_grid']" position="attributes">
+            <attribute name="class">col-md-9 col-sm-8</attribute>
+        </xpath>
+    </template>
+</odoo>

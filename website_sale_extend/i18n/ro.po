@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_sale_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 13:57+0000\n"
+"PO-Revision-Date: 2018-12-12 13:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_sale_extend
+#: model:ir.ui.view,arch_db:website_sale_extend.product_package
+msgid "<br/>\n"
+"            <span class=\"text-muted\">Choice by package</span>"
+msgstr "<br/>\n"
+"            <span class=\"text-muted\">Choice by package</span>"
+
+#. module: website_sale_extend
+#: model:ir.ui.view,arch_db:website_sale_extend.product_fixing
+msgid "Add to Cart"
+msgstr "Adaugă în Coș"
+
+#. module: website_sale_extend
+#: model:ir.ui.view,arch_db:website_sale_extend.product_package
+msgid "Buy at retail..."
+msgstr "Buy at retail..."
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/main.py:525
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr "Invalid Email! Please enter a valid email address."
+
+#. module: website_sale_extend
+#. openerp-web
+#: code:addons/website_sale_extend/static/src/js/website_sale.js:15
+#, python-format
+msgid "My Cart"
+msgstr "My Cart"
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/main.py:996
+#, python-format
+msgid "New Product"
+msgstr "New Product"
+
+#. module: website_sale_extend
+#: model:ir.model,name:website_sale_extend.model_product_packaging
+msgid "Packaging"
+msgstr "Ambalare"
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/main.py:782
+#, python-format
+msgid "Pay Now"
+msgstr "Pay Now"
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/backend.py:109
+#, python-format
+msgid "Previous Month"
+msgstr "Previous Month"
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/backend.py:107
+#, python-format
+msgid "Previous Week"
+msgstr "Previous Week"
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/backend.py:111
+#, python-format
+msgid "Previous Year"
+msgstr "Previous Year"
+
+#. module: website_sale_extend
+#: model:ir.ui.view,arch_db:website_sale_extend.product_fixing
+msgid "Products"
+msgstr "Produse"
+
+#. module: website_sale_extend
+#: model:ir.model.fields,field_description:website_sale_extend.field_product_packaging_main
+msgid "Set Main on Website"
+msgstr "Set Main on Website"
+
+#. module: website_sale_extend
+#: code:addons/website_sale_extend/controllers/main.py:543
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Some required fields are empty."
+
+#. module: website_sale_extend
+#: model:ir.ui.view,arch_db:website_sale_extend.cart_lines_fixing
+#: model:ir.ui.view,arch_db:website_sale_extend.payment_fixed
+msgid "Subtotal"
+msgstr "Subtotal"
+

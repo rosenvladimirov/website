@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- website views -->
+        <record id="view_website_xfilter_form" model="ir.ui.view">
+            <field name="name">website.xfilter.form</field>
+            <field name="model">website</field>
+            <field name="inherit_id" ref="website.view_website_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='domain']" position="after">
+                    <group name="x-filter">
+                        <separator name="x-filter" string="x-Filters"/>
+                        <field name="website_filter_ids" widget="many2many_tags" string="X-Filters"/>
+                        <filed name="website_filter_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

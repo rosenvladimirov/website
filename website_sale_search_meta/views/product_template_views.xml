@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_only_form_seo_view" model="ir.ui.view">
+        <field name="name">product.template.product.seo.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="website_seo" string="Website SEO">
+                    <group>
+                        <field name="website_meta_product_id">
+                            <form name="product_seo">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="website_meta_title"/>
+                                <group>
+                                </group>
+                                    <field name="website_meta_description"/>
+                                </group>
+                            </form>
+                        </field>
+                        <field name="website_meta_title" readonly="1"/>
+                        <field name="website_meta_description" readonly="1"/>
+                        <field name="website_meta_keyword_ids" widget="many2many_tags"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_packaging_tree_website_view" model="ir.ui.view">
+            <field name="name">product.packaging.website.tree.view</field>
+            <field name="model">product.packaging</field>
+            <field name="inherit_id" ref="product.product_packaging_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="before">
+                    <field name="main"/>
+                    <field name="on_website"/>
+                </field>
+            </field>
+        </record>
+        <record id="product_packaging_form_website_view" model="ir.ui.view">
+            <field name="name">product.packaging.website.form.view</field>
+            <field name="model">product.packaging</field>
+            <field name="inherit_id" ref="product.product_packaging_form_view"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="main"/>
+                    <field name="on_website"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

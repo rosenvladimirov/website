@@ -1,1 +1,0 @@
-Integrate  `AddThis.com <https://www.addthis.com>`_ in your Odoo website.
