@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="products_attributes_visible" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Attribute's Filters in usage">
-        <xpath expr="//div[@id='products_grid_before']" position="inside">
-            <t t-if="int(category or 0) == 0">
-                <t t-set="attrib_visible_show" t-value="attrib_visible_all"/>
-            </t>
-            <t t-else="">
-                <t t-set="attrib_visible_show" t-value="attrib_visible"/>
-            </t>
-            <div id="accordion_attribures" class="panel-group">
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shadows">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/website_sale_attributes/static/src/less/website_sale_attributes.less'/>
+        </xpath>
+    </template>
+    <template id="option_attributes_filters" name="Filters &amp; Attributes in usage">
+        <t t-if="int(category or 0) == 0">
+            <t t-set="attrib_visible_show" t-value="attrib_visible_all"/>
+        </t>
+        <t t-else="">
+            <t t-set="attrib_visible_show" t-value="attrib_visible"/>
+        </t>
+        <div id="accordion_attribures" class="panel-group">
             <div class="panel panel-info" style="margin: 0px; border-radius: 0; border-left: none; border-right: none; border-top: none;">
                 <div class="panel-heading" style="border-radius: 0; border: none;">
                     <button class="btn btn-link" style="padding: 0px; border-radius: 0px; border: none;" data-toggle="collapse" data-parent="accordion_attribures" data-target="#filter_products_attributes" aria-label="Close The filters box">Filtered</button>
                 </div>
                 <div id="filter_products_attributes" class="panel-collapse collapse in">
-                <div class="panel-body" style="border-radius: 0; border: none;">
-                    <form class="js_attributes" method="get" style="padding-left: 15px; padding-right: 15px;">
+                    <div class="panel-body" style="border-radius: 0; border: none;">
+                        <form class="js_attributes" method="get" style="padding-left: 15px; padding-right: 15px;">
                         <input type="hidden" name="search" t-att-value="search" />
                         <ul class="nav nav-pills nav-stacked mt16">
                             <t t-foreach="attributes_all" t-as="a">
-                                <li t-if="a.value_ids and len(a.value_ids) &gt; 1">
+                                <t t-set="attrib_visible" t-value="a.website_variant and any([v for v in a.value_ids if v.id in attrib_visible_show])"/>
+                                <li t-if="attrib_visible">
                                     <div>
                                         <strong t-field="a.name" />
                                     </div>
@@ -27,7 +32,7 @@
                                         <select class="form-control" name="attrib">
                                             <option value="" />
                                             <t t-foreach="a.value_ids" t-as="v">
-                                                <t t-if="v.id in attrib_visible_show">
+                                                <t t-if="v.website_variant and v.id in attrib_visible_show">
                                                     <option t-att-value="'%s-%s' % (a.id,v.id)" t-esc="v.name" t-att-selected="v.id in attrib_set" />
                                                 </t>
                                             </t>
@@ -36,7 +41,7 @@
                                     <t t-if="a.type == 'radio'">
                                         <ul class="nav nav-pills nav-stacked">
                                             <t t-foreach="a.value_ids" t-as="v">
-                                                <t t-if="v.id in attrib_visible_show">
+                                                <t t-if="v.website_variant and v.id in attrib_visible_show">
                                                 <li t-att-class="'active' if v.id in attrib_set else None">
                                                     <label style="margin: 0 20px;">
                                                         <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None" />
@@ -49,7 +54,7 @@
                                     </t>
                                     <t t-if="a.type == 'color'">
                                         <t t-foreach="a.value_ids" t-as="v">
-                                            <t t-if="v.id in attrib_visible_show">
+                                            <t t-if="v.website_variant and v.id in attrib_visible_show">
                                             <label t-attf-style="background-color:#{v.html_color or v.name}" t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
                                                 <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None" t-att-title="v.name" />
                                             </label>
@@ -58,15 +63,15 @@
                                     </t>
                                     <t t-if="a.type == 'image'">
                                         <t t-foreach="a.value_ids" t-as="v">
-                                            <t t-if="v.id in attrib_visible_show">
-                                            <label t-attf-style="background-image: url('#{website.image_url(v, 'image_small')}')"
-                                                t-attf-class="css_attribute_image #{'active' if v.id in attrib_set else ''}">
-                                                <input type="radio"
-                                                  name="attrib"
-                                                  t-att-value="'%s-%s' % (a.id,v.id)"
-                                                  t-att-checked="'checked' if v.id in attrib_set else None"
-                                                  t-att-title="v.name" />
-                                            </label>
+                                            <t t-if="v.website_variant and v.id in attrib_visible_show">
+                                                <label t-attf-style="background-image: url('#{website.image_url(v, 'image_small')}')"
+                                                    t-attf-class="css_attribute_image #{'active' if v.id in attrib_set else ''}">
+                                                    <input type="radio"
+                                                      name="attrib"
+                                                      t-att-value="'%s-%s' % (a.id,v.id)"
+                                                      t-att-checked="'checked' if v.id in attrib_set else None"
+                                                      t-att-title="v.name" />
+                                                </label>
                                             </t>
                                         </t>
                                     </t>
@@ -74,48 +79,231 @@
                             </t>
                         </ul>
                     </form>
-                </div>
+                    </div>
                 </div>
             </div>
             <t t-if="attrib_values">
-            <div class="panel panel-info" style="margin: 0px; border-radius: 0; border: none;">
+                <div class="panel panel-info" style="margin: 0px; border-radius: 0; border: none;">
                 <div class="panel-heading" style="border-radius: 0; border: none;">
                     <button class="btn btn-link" style="padding: 0px; border-radius: 0px; border: none;" data-toggle="collapse" data-parent="accordion_attribures" data-target="#show_products_attributes" aria-label="Show The filtered box">Filters</button>
                 </div>
                 <div id="show_products_attributes" class="panel-collapse collapse">
                 <div class="panel-body" style="border-radius: 0; border: none;">
                     <div style="padding-left: 15px; padding-right: 15px;">
-                    <ul class="list-inline pull-left">
-                        <li t-if="attrib_values" id="clear_all">
-                            <a href="/shop"><span>Clear all filters</span> <i class="fa fa-eraser" aria-hidden="true"/></a>
-                        </li>
-                        <t t-foreach="attributes_all" t-as="a">
-                            <li t-if="a.id in [x[0] for x in attrib_values]">
-                                <label t-field="a.name"/>:
-                                <t t-foreach="a.value_ids" t-as="v">
-                                    <t t-if="a.type == 'color'">
-                                        <label t-if="v.id in [x[1] for x in attrib_values]" t-attf-style="background-color:#{v.html_color or v.name}; height: 34px; width: 34px;"/>
-                                    </t>
-                                    <t t-if="a.type in ('radio', 'select')">
-                                        <span t-if="v.id in [x[1] for x in attrib_values]" t-field="v.name"/>
-                                    </t>
-                                </t>
+                        <ul class="list-inline pull-left">
+                            <li t-if="attrib_values" id="clear_all">
+                                <a href="/shop"><span>Clear all filters</span> <i class="fa fa-eraser" aria-hidden="true"/></a>
                             </li>
-                        </t>
-                    </ul>
+                            <t t-foreach="attributes_all" t-as="a">
+                                <li t-if="a.id in [x[0] for x in attrib_values]">
+                                    <label t-field="a.name"/>:
+                                    <t t-foreach="a.value_ids" t-as="v">
+                                        <t t-if="a.type == 'color'">
+                                            <label t-if="v.id in [x[1] for x in attrib_values]" t-attf-style="background-color:#{v.html_color or v.name}; height: 34px; width: 34px;"/>
+                                        </t>
+                                        <t t-if="a.type in ('radio', 'select')">
+                                            <span t-if="v.id in [x[1] for x in attrib_values]" t-field="v.name"/>
+                                        </t>
+                                        <t t-if="a.type == 'image'">
+                                            <label t-if="v.id in [x[1] for x in attrib_values]" t-attf-style="background-image: url('#{website.image_url(v, 'image_small')}')"
+                                                t-attf-class="css_attribute_image #{'active' if v.id in attrib_set else ''}"/>
+                                        </t>
+                                    </t>
+                                </li>
+                            </t>
+                        </ul>
                     </div>
                 </div>
                 </div>
             </div>
             </t>
+        </div>
+    </template>
+    <template id="option_collapse_categories_recursive_attributes_visible" name="Collapse Category &amp; Filters in usage">
+        <li t-att-class="'active' if categ.id == int(category or 0) else None">
+            <i t-if="categ.child_id" t-attf-class="text-primary fa #{'fa fa-chevron-down' if categ.id in parent_category_ids else 'fa fa-chevron-right'}" />
+            <a t-att-href="keep('/shop/category/' + slug(categ), category=0)" t-field="categ.name" style="border-radius: 0px; border: none;"></a>
+            <ul t-if="categ.child_id" class="nav nav-pills nav-stacked nav-hierarchy" t-att-style="'display:block;' if categ.id in parent_category_ids else 'display:none;'">
+                <t t-foreach="categ.child_id" t-as="categ">
+                    <t t-call="website_sale_attributes.option_collapse_categories_recursive_attributes_visible" />
+                </t>
+            </ul>
+        </li>
+    </template>
+    <template id="products_attributes_visible" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Attribute's Filters in usage">
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <div id="accordion_categories" class="panel-group">
+                <div class="panel panel-info" style="margin: 0px; border-radius: 0; border-left: none; border-right: none; border-top: none;">
+                    <div class="panel-heading" style="border-radius: 0; border: none;">
+                        <span style="padding: 0px; border-radius: 0px; border: none;">Categories</span>
+                    </div>
+                    <div id="filter_products_categories" class="panel-body" style="border-radius: 0; border: none;">
+                        <ul class="nav nav-pills nav-stacked" id="o_shop_collapse_category">
+                            <li t-att-class=" '' if category else 'active' ">
+                                <a t-att-href="keep('/shop',category=0)" class="o_not_editable" style="border-radius: 0px; border: none;">All Products</a>
+                            </li>
+                            <t t-foreach="categories" t-as="categ">
+                                <t t-call="website_sale_attributes.option_collapse_categories_recursive_attributes_visible" />
+                            </t>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <t t-call="website_sale_attributes.option_attributes_filters"/>
         </xpath>
         <xpath expr="//div[@id='products_grid_before']" position="attributes">
-            <attribute name="class">col-md-3 col-sm-4 col-xs-12</attribute>
-            <attribute name="style">padding: 0px; box-shadow: rgb(136, 136, 136) 5px 10px 18px; border-radius: 0px;</attribute>
+            <attribute name="class">col-md-3 col-sm-4 col-xs-12 shadows</attribute>
+            <attribute name="style">padding: 0px; border-radius: 0px;</attribute>
         </xpath>
         <xpath expr="//div[@id='products_grid']" position="attributes">
             <attribute name="class">col-md-9 col-sm-8</attribute>
         </xpath>
     </template>
+    <template id="products_list_attributes_view" inherit_id="website_sale.products_list_view">
+        <xpath expr="//div[hasclass('oe_product','oe_list','oe_product_cart')]" position="attributes">
+            <attribute name="class">oe_product oe_list oe_product_cart shadows</attribute>
+        </xpath>
+    </template>
+    <template id="products_attributes" inherit_id="website_sale.product" name="Products Shadows">
+  <!--
+  <xpath expr="//div[@id='product_details']" position="attributes">
+    <attribute name="class">col-sm-5 col-lg-4 col-lg-offset-1 shadows</attribute>
+    <attribute name="style">padding-top: 6px; padding-bottom: 6px;</attribute>
+  </xpath>
+  -->
+  <!--
+  <xpath expr="//section[@id='product_detail'" position="inside">
+      <div class="row">
+        <div class="col-sm-7">
+            <h2 itemprop="name" t-field="product.name"><b>Име на продукта:</b></h2>
+            <p itemprop="description" t-field="product.description" class="text-muted"/>
+        </div>
+        <div class="col-sm-5 col-lg-4 col-lg-offset-1" id="product_specifications">
+                <h2>Measurements</h2>
+            <p>
+              <t t-if="product.product_variant_ids">
+                <div class="o_row">
+                    <b>Weight</b>
+                    <t t-if="product.product_variant_ids[0].weight_display == 'kg'">
+                        <span t-field="product.product_variant_ids[0].weight"/>
+                        <span>kg</span>
+                    </t>
+                    <t t-if="product.product_variant_ids[0].weight_display == 'g'">
+                        <span t-field="product.product_variant_ids[0].weight_g"/>
+                        <span>g</span>
+                    </t>
+                </div>
+                <div class="o_row">
+                    <b>Volume</b>
+                    <span t-field="product.product_variant_ids[0].volume"/>
+                    <span>m³</span>
+                </div>
+                <div class="o_row" name="dimensions">
+                    <b>Dimensions (L-W-H)</b>
+                    <span t-field="product.product_variant_ids[0].length"/><span>x</span>
+                    <span t-field="product.product_variant_ids[0].width"/><span>x</span>
+                    <span t-field="product.product_variant_ids[0].height"/><span>cm</span>
+                </div>
+              </t>
+              <t t-else="">
+                <div class="o_row">
+                    <b>Weight</b>
+                    <t t-if="product.weight_display == 'kg'">
+                        <span t-field="product.weight"/>
+                        <span>kg</span>
+                    </t>
+                    <t t-if="product.weight_display == 'g'">
+                        <span t-field="product.weight_g"/>
+                        <span>g</span>
+                    </t>
+                </div>
+                <div class="o_row">
+                    <b>Volume</b>
+                    <span t-field="product.volume"/>
+                    <span>m³</span>
+                </div>
+                <div class="o_row" name="dimensions">
+                    <b>Dimensions (L-W-H)</b>
+                    <span t-field="product.length"/><span>x</span>
+                    <span t-field="product.width"/><span>x</span>
+                    <span t-field="product.height"/><span>cm</span>
+                </div>
+              </t>
+            </p>
+           <t t-if="website.get_product_attachements(product.id)">
+           <div class="download-attachment">
+            <h2>Приложени Файлове</h2>
+            <t t-foreach="website.get_product_attachements(product.id)" t-as="attachment">
+                <t t-if="attachment">
+                <table border="0">
+                <t t-foreach="attachment" t-as="download">
+                    <tr>
+                     <td>
+                        <a t-att-href="'/web/content?model=ir.attachment&amp;field=datas&amp;id=%s&amp;download=true' % download.id "><i class="fa font-icons-icon fa-download"/>
+                       </a>
+                     </td>
+                     <td style="padding-left:10px;">
+                        <a t-att-href="'/web/content?model=ir.attachment&amp;field=datas&amp;id=%s&amp;download=true' % download.id "><span t-field="download.name"/>
+                     </a>
+                     </td>
+                    </tr>
+                </t>
+                </table>
+                </t>
+            </t>
+            </div>
+           </t>
+       </div>
+    </div>
+      </xpath>
+  -->
+        <xpath expr="//section/div" position="replace">
+            <div class="row">
+                <div class="col-sm-8" style="padding: 0px; border-radius: 0px;">
+                    <hr class="hr-primary" style="padding: 0; border-top: 1px solid #cccccc1a; height: 2px; margin-left: 15px; margin-bottom:-3px;"/>
+                    <ol class="breadcrumb bread-primary" style="border-radius: 0px; background-color: transparent !important;">
+                        <a t-att-href="keep(category=0)" class="btn btn-primary" role="button" style="border-radius: 0px;"><i class="fa fa-home"></i> Products</a>
+                        <li t-if="category">
+                            <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name" />
+                        </li>
+                        <li class="active">
+                            <span t-field="product.name" />
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-sm-4">
+                    <t t-call="website_sale.search" />
+                </div>
+            </div>
+            <div class="row">
+                <div id="website_published_button" class="col-sm-3 col-sm-offset-7">
+                </div>
+                <div class="col-sm-2 text-right">
+                    <t t-call="website_sale.pricelist_list" />
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//section/div[3]/div" position="attributes">
+            <attribute name="class">col-sm-7 shadows</attribute>
+        </xpath>
+    </template>
+    <template id="products_atttributes" inherit_id="website_sale.products" name="Products Shadows">
+        <xpath expr="//div[hasclass('products_pager')]" position="replace">
+            <div class="row">
+                <div class="col-sm-8" style="padding: 0px; border-radius: 0px;">
+                    <hr class="hr-primary" style="padding: 0; border-top: 1px solid #cccccc1a; height: 2px; margin-left: 15px; margin-bottom:-3px;"/>
+                    <t t-call="website.pager" />
+                </div>
+                <div class="col-sm-4">
+                    <t t-call="website_sale.search" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-10 text-right">
+                    <t t-call="website_sale.pricelist_list" />
+                </div>
+            </div>
+        </xpath>
+    </template>
 </odoo>
+<!-- box-shadow: rgb(136, 136, 136) 3px 3px 3px; -->

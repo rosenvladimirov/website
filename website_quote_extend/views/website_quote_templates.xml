@@ -21,7 +21,7 @@
                     <t t-foreach="page" t-as="layout_category">
                         <t t-if="layout_category_size > 1 or page_size > 1" groups="sale.group_sale_layout">
                             <tr class="active">
-                                <td colspan="7" style="font-weight: bold; border-bottom: 1px solid black;">&amp;bull;
+                                <td colspan="7" class="o_bulgaria_cells_bottom">&amp;bull;
                                     <t t-esc="layout_category['name']"/>
                                 </td>
                             </tr>
