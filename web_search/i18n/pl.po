@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* web_search
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 13:58+0000\n"
+"PO-Revision-Date: 2018-12-12 13:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_create_uid
+msgid "Created by"
+msgstr "Utworzone przez"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_create_date
+msgid "Created on"
+msgstr "Utworzono"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_display_name
+msgid "Display Name"
+msgstr "Wyświetlana nazwa "
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_id
+msgid "ID"
+msgstr "ID"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_key
+msgid "Key"
+msgstr "Klucz"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang___last_update
+msgid "Last Modified on"
+msgstr "Ostatnio modyfikowano"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_write_uid
+msgid "Last Updated by"
+msgstr "Ostatnio modyfikowane przez"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_write_date
+msgid "Last Updated on"
+msgstr "Ostatnia zmiana"
+
+#. module: web_search
+#: model:ir.model,name:web_search.model_product_template
+msgid "Product Template"
+msgstr "Szablon produktu"
+
+#. module: web_search
+#: model:ir.model.fields,field_description:web_search.field_product_template_rang_rang
+msgid "Product Template Rang"
+msgstr "Product Template Rang"
+
+#. module: web_search
+#: model:ir.model,name:web_search.model_product_template_rang
+msgid "Product template rang"
+msgstr "Product template rang"
+
+#. module: web_search
+#: model:ir.ui.view,arch_db:web_search.website_search_box_inherit
+msgid "Search..."
+msgstr "Szukaj..."
+

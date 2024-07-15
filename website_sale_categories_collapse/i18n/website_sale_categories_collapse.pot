@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_sale_categories_collapse
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 14:44+0000\n"
+"PO-Revision-Date: 2018-12-12 14:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_sale_categories_collapse
+#: model:ir.ui.view,arch_db:website_sale_categories_collapse.option_collapse_products_categories_filters
+msgid "<span class=\"btn btn-primary\" style=\"width:100%\" data-toggle=\"collapse\" data-target=\"#categPanel, #filtrPanel\" data-parent=\"#categAccor\">\n"
+"                    <span class=\"pull-left fa fa-bars\" style=\"margin-top: 1.76%;\"/>Categories</span>"
+msgstr ""
+
+#. module: website_sale_categories_collapse
+#: model:ir.ui.view,arch_db:website_sale_categories_collapse.option_collapse_products_categories_filters
+msgid "<span class=\"btn btn-primary\" style=\"width:100%\" data-toggle=\"collapse\" data-target=\"#categPanel, #filtrPanel\" data-parent=\"#categAccor\">\n"
+"                    <span class=\"pull-left fa fa-filter\" style=\"margin-top: 1.76%;\"/>Filters</span>"
+msgstr ""
+
+#. module: website_sale_categories_collapse
+#: model:ir.ui.view,arch_db:website_sale_categories_collapse.option_collapse_products_categories_filters
+msgid "All Products"
+msgstr ""
+
+#. module: website_sale_categories_collapse
+#: model:ir.model,name:website_sale_categories_collapse.model_ir_ui_view
+msgid "ir.ui.view"
+msgstr ""
+

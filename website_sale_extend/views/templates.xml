@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop Packages">
+        <xpath expr="//script[@src='/website_sale/static/src/js/website_sale.js']" position="replace">
+            <script type="text/javascript" src="/website_sale_extend/static/src/js/website_sale.js"></script>
+        </xpath>
+    </template>
+
+    <template id="cart_lines_fixing" inherit_id="website_sale.cart_lines" name="Shopping Cart Lines Added subtotal">
+        <xpath expr="//th[@class='text-center td-price']">
+            <th name="subtotal" class='text-center td-price'>Subtotal</th>
+        </xpath>
+        <xpath expr="//td[@name='price']" position="after">
+            <td class="text-center td-price" name="subtotal">
+                <span t-field="line.price_subtotal" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'from_currency': website_sale_order.pricelist_id.currency_id, 'display_currency': website.currency_id}" groups="sale.group_show_price_subtotal" />
+                <span t-esc="line.price_subtotal+line.price_tax" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'from_currency': website_sale_order.pricelist_id.currency_id, 'display_currency': website.currency_id}" groups="sale.group_show_price_total" />
+            </td>
+        </xpath>
+    </template>
+    <template id="payment_fixed" inherit_id="website_sale.payment" name="Payment Added subtotal">
+        <xpath expr="//th[@class='text-center td-price']">
+            <th>Subtotal</th>
+        </xpath>
+        <xpath expr="//td[@class='text-center td-price']" position="after">
+            <td class="text-center td-subtotal" name="subtotal">
+                <span t-field="line.price_subtotal" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'from_currency': website_sale_order.pricelist_id.currency_id, 'display_currency': website.currency_id}" groups="sale.group_show_price_subtotal" />
+                <span t-esc="line.price_subtotal+line.price_tax" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'from_currency': website_sale_order.pricelist_id.currency_id, 'display_currency': website.currency_id}" groups="sale.group_show_price_total" />
+            </td>
+        </xpath>
+    </template>
+    <template id="product_fixing" inherit_id="website_sale.product" name="Product Fixing" priority="0">
+        <xpath expr="//section[@id='product_detail']/div[1]" position="replace">
+            <div class="row">
+                <div class="col-md-7" style="padding: 0px;">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a t-att-href="keep(category=0)">Products</a>
+                        </li>
+                        <li t-if="category">
+                            <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name" />
+                        </li>
+                        <li class="active">
+                            <span t-field="product.name" />
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-md-4 col-md-offset-1 mb8">
+                    <t t-call="website_sale.search" />
+                </div>
+                <div id="website_published_button" class="col-sm-3">
+                </div>
+                <div class="col-sm-2 text-right">
+                    <t t-call="website_sale.pricelist_list" />
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//a[@id='add_to_cart']" position="replace">
+            <div class="btn-group" role="group">
+                <a id="add_to_cart" class="btn btn-primary btn-lg mt8 js_check_product a-submit" href="#">Add to Cart</a>
+            </div>
+        </xpath>
+    </template>
+    <!--
+    Fixed bellow
+    <template id="products_item" inherit_id="website_sale.products_item" name="Products item fixing" priority="0">
+        <xpath expr="//div[hasclass('product_price')]" position="inside">
+            <div id="btn_group" class="btn-group" role="group"/>
+        </xpath>
+    </template>
+    -->
+
+    <!-- Product item used by /shop and /shop/cart -->
+    <template id="website_sale.products_item" name="Products item Fixed">
+        <form action="/shop/cart/update" method="post">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <div itemscope="itemscope" itemtype="http://schema.org/Product">
+                <div class="ribbon-wrapper">
+                    <div class="ribbon btn btn-danger">Sale</div>
+                </div>
+                <div class="oe_product_image">
+                    <a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))">
+                        <span itemprop="image" t-attf-content="{{request.httprequest.url_root}}web/image/product.template/{{product.id}}/image" t-field="product.image" t-options="{'widget': 'image', 'resize': None if product_image_big else '300x300', 'zoom': 'image'}" t-att-alt="product.name" />
+                    </a>
+                </div>
+                <t t-if="show_publish">
+                    <div id="website_published_button" class="" groups="sales_team.group_sale_manager">
+                        <t t-call="website.publish_management">
+                            <t t-set="object" t-value="product" />
+                            <t t-set="publish_edit" t-value="True" />
+                            <t t-set="action" t-value="'product.product_template_action'" />
+                        </t>
+                    </div>
+                </t>
+                <section class="accordion">
+                    <div class="accordion-item">
+                        <h5>
+                            <strong>
+                                <a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-att-content="product.name" t-field="product.name" />
+                            </strong>
+                        </h5>
+                        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+                            <b>
+                                <t t-if="product.website_price_difference and website.get_current_pricelist().discount_policy=='without_discount'">
+                                    <del class="text-danger mr8" style="white-space: nowrap;" t-esc="compute_currency(product.website_public_price)" t-options="{'widget': 'monetary', 'display_currency': website.get_current_pricelist().currency_id, 'from_currency': website.currency_id}" />
+                                </t>
+
+                                <span t-esc="product.website_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                <span itemprop="price" style="display:none;" t-esc="product.website_price" />
+                                <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                            </b>
+                            <div id="btn_group" class="btn-group" role="group"/>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </template>
+    <template id="products_description_fixing" inherit_id="website_sale.products_description">
+        <xpath expr="//div[hasclass('text-info')]" position="attributes">
+            <attribute name="class">text-info oe_subdescription accordion-item-content</attribute>
+        </xpath>
+    </template>
+    <!--
+    <template id="website_sale.products_add_to_cart" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Add to Cart">
+        <xpath expr="//div[@id='btn_group']" position="inside">
+            <input name="product_id" t-att-value="product.product_variant_id.id" type="hidden" />
+            <t t-if="len(product.product_variant_ids) == 1">
+                <a class="btn btn-default btn-xs a-submit">
+                    <span class="fa fa-shopping-cart" />
+                </a>
+            </t>
+            <t t-if="len(product.product_variant_ids) &gt; 1">
+                <a class="btn btn-default btn-xs" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))">
+                    <span class="fa fa-shopping-cart" />
+                </a>
+            </t>
+        </xpath>
+    </template>
+    -->
+    <template id="product_package" inherit_id="website_sale.product" customize_show="True" name="Select Package">
+      <xpath expr="//a[@id='add_to_cart']" position="before">
+        <t t-if="product.sudo().packaging_ids">
+            <br/>
+            <span class="text-muted">Choice by package</span>
+            <div class="input-group oe_website_spinner mt8" contenteditable="false">
+                <a t-attf-href="#" class="mb8 input-group-addon js_add_package_cart_json">
+                    <i class="fa fa-minus"></i>
+                </a>
+                <select id="add_qty_package" class="form-control">
+                    <option value="">Buy at retail...</option>
+                    <t t-foreach="product.sudo().packaging_ids.filtered(lambda r: r.on_website == False) or []" t-as="package">
+                        <option t-att-value="package.id" t-att-data-qty="package.qty" t-att-selected="package.main">
+                            <t t-esc="package.name" />
+                        </option>
+                    </t>
+                </select>
+                <a t-attf-href="#" class="mb8 input-group-addon float_left js_add_package_cart_json">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </t>
+      </xpath>
+    </template>
+</odoo>

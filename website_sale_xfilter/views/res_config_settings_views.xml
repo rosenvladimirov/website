@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.website</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='webmaster_settings']/div[2]" position="inside">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <div class="content-group">
+                            <label string="Website x-Filter"/>
+                            <div class="text-muted">
+                                Default x-filter and logo of your website
+                            </div>
+                            <div class="row mt16">
+                                <label class="col-md-3 o_light_label" for="website_filter_id"/>
+                                <field name="website_filter_id"/>
+                            </div>
+                            <div class="row mt16">
+                                <label class="col-md-3 o_light_label" for="website_logo"/>
+                                <field name="website_logo" widget="image" class="pull-left oe_avatar"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,248 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_sale_xfilter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20180630\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-16 14:01+0000\n"
+"PO-Revision-Date: 2018-07-16 14:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_child_id
+msgid "Children Categories"
+msgstr "Categorii subordonate"
+
+#. module: website_sale_xfilter
+#: model:ir.actions.act_window,help:website_sale_xfilter.product_website_filter_action
+msgid "Click to define a new website x-filter for product."
+msgstr "Click to define a new website x-filter for product."
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_create_uid
+msgid "Created by"
+msgstr "Creat de"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_create_date
+msgid "Created on"
+msgstr "Creat în"
+
+#. module: website_sale_xfilter
+#: model:ir.ui.view,arch_db:website_sale_xfilter.res_config_settings_view_form
+msgid "Default x-filter and logo of your website"
+msgstr "Default x-filter and logo of your website"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_display_name
+msgid "Display Name"
+msgstr "Nume afișat"
+
+#. module: website_sale_xfilter
+#: code:addons/website_sale_xfilter/models/product.py:46
+#, python-format
+msgid "Error ! You cannot create recursive filter."
+msgstr "Error ! You cannot create recursive filter."
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_filter_name
+msgid "Filter Name"
+msgstr "Nume filtru "
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_product_website_filter_sequence
+msgid "Gives the sequence order when displaying a list of product x-filters."
+msgstr "Gives the sequence order when displaying a list of product x-filters."
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_product_product_website_filter_ids
+#: model:ir.model.fields,help:website_sale_xfilter.field_product_template_website_filter_ids
+msgid "Header based filters to make different brands on the Shop page (online filtered by brand)"
+msgstr "Header based filters to make different brands on the Shop page (online filtered by brand)"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_res_config_settings_website_filter_id
+#: model:ir.model.fields,help:website_sale_xfilter.field_test_config_settings_website_filter_id
+#: model:ir.model.fields,help:website_sale_xfilter.field_website_website_filter_id
+#: model:ir.model.fields,help:website_sale_xfilter.field_website_website_filter_ids
+msgid "Header based filters to make different brands on the Website pages (online filtered by brand)"
+msgstr "Header based filters to make different brands on the Website pages (online filtered by brand)"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_image
+msgid "Image"
+msgstr "Imagine"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter___last_update
+msgid "Last Modified on"
+msgstr "Ultima modificare la"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizare făcută de"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizare pe"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_image_medium
+msgid "Medium-sized image"
+msgstr "Imagine de dimensiune mijlocie"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_product_website_filter_image_medium
+msgid "Medium-sized image of the category. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Imagine de dimensiune medie a categoriei. Este redimensionată automat la 128x128px, păstrând proporțiile. Folosiți acest câmp în vizualizările formularului sau în unele vizualizări kanban."
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_name
+msgid "Name"
+msgstr "Nume"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_parent_id
+msgid "Parent Category"
+msgstr "Categorie superioară"
+
+#. module: website_sale_xfilter
+#: model:ir.model,name:website_sale_xfilter.model_product_product
+msgid "Product"
+msgstr "Produs"
+
+#. module: website_sale_xfilter
+#: model:ir.model,name:website_sale_xfilter.model_product_template
+msgid "Product Template"
+msgstr "Șablon produs"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_sequence
+msgid "Sequence"
+msgstr "Secvență"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_website_filter_image_small
+msgid "Small-sized image"
+msgstr "Imagine dimensiune mică"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_product_website_filter_image_small
+msgid "Small-sized image of the category. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Imagine de dimensiune mică a categoriei. Este redimensionata automat ca o imagine de 64x64px, păstrând proporțiile. Folosiți acest câmp oriunde este necesară o imagine mică."
+
+#. module: website_sale_xfilter
+#: sql_constraint:product.website.filter:0
+msgid "The name of filter is be unique!"
+msgstr "The name of filter is be unique!"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_res_config_settings_website_nav_menu
+#: model:ir.model.fields,help:website_sale_xfilter.field_test_config_settings_website_nav_menu
+#: model:ir.model.fields,help:website_sale_xfilter.field_website_website_nav_menu
+msgid "This field holds the image used as background menu image, limited to 1024x1024px."
+msgstr "This field holds the image used as background menu image, limited to 1024x1024px."
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,help:website_sale_xfilter.field_product_website_filter_image
+msgid "This field holds the image used as image for the category, limited to 1024x1024px."
+msgstr "This field holds the image used as image for the category, limited to 1024x1024px."
+
+#. module: website_sale_xfilter
+#: model:ir.model,name:website_sale_xfilter.model_website
+msgid "Website"
+msgstr "Pagină web"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_res_config_settings_website_nav_menu
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_test_config_settings_website_nav_menu
+msgid "Website Background for Menu"
+msgstr "Website Background for Menu"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_res_config_settings_website_filter_id
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_test_config_settings_website_filter_id
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_website_website_filter_id
+msgid "Website Default Filter"
+msgstr "Website Default Filter"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_res_config_settings_website_logo
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_test_config_settings_website_logo
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_website_website_logo
+msgid "Website Logo"
+msgstr "Website Logo"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_website_website_nav_menu
+msgid "Website Nav Menu"
+msgstr "Website Nav Menu"
+
+#. module: website_sale_xfilter
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_product_website_filter_ids
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_product_template_website_filter_ids
+#: model:ir.model.fields,field_description:website_sale_xfilter.field_website_website_filter_ids
+msgid "Website Product Filter"
+msgstr "Website Product Filter"
+
+#. module: website_sale_xfilter
+#: model:ir.model,name:website_sale_xfilter.model_product_website_filter
+msgid "Website Product x-Filters"
+msgstr "Website Product x-Filters"
+
+#. module: website_sale_xfilter
+#: model:ir.ui.view,arch_db:website_sale_xfilter.product_website_filter_form_view
+#: model:ir.ui.view,arch_db:website_sale_xfilter.product_website_filter_tree_view
+msgid "Website X-Filter product"
+msgstr "Website X-Filter product"
+
+#. module: website_sale_xfilter
+#: model:ir.actions.act_window,name:website_sale_xfilter.product_website_filter_action
+#: model:ir.ui.menu,name:website_sale_xfilter.menu_product_website_filter
+#: model:ir.ui.view,arch_db:website_sale_xfilter.product_variant_easy_edit_filter_view
+msgid "Website X-Filters"
+msgstr "Website X-Filters"
+
+#. module: website_sale_xfilter
+#: model:ir.ui.view,arch_db:website_sale_xfilter.res_config_settings_view_form
+msgid "Website x-Filter"
+msgstr "Website x-Filter"
+
+#. module: website_sale_xfilter
+#: model:ir.actions.act_window,help:website_sale_xfilter.product_website_filter_action
+msgid "X-Filter are used to browse your products through the\n"
+"            filtered by brand and configured in proxy."
+msgstr "X-Filter are used to browse your products through the\n"
+"            filtered by brand and configured in proxy."
+
+#. module: website_sale_xfilter
+#: model:ir.ui.view,arch_db:website_sale_xfilter.product_template_xfilter_form_view
+#: model:ir.ui.view,arch_db:website_sale_xfilter.product_variant_easy_edit_filter_view
+#: model:ir.ui.view,arch_db:website_sale_xfilter.view_website_xfilter_form
+msgid "X-Filters"
+msgstr "X-Filters"
+
+#. module: website_sale_xfilter
+#: model:ir.model,name:website_sale_xfilter.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: website_sale_xfilter
+#: model:ir.ui.view,arch_db:website_sale_xfilter.view_website_xfilter_form
+msgid "x-Filters"
+msgstr "x-Filters"
+

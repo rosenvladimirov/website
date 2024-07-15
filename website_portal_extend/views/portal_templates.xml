@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="portal_layout_extend" inherit_id="portal.portal_layout" name="Portal Layout">
+        <xpath expr="//div[@id='o_my_sidebar']" position="attributes">
+            <attribute name="class">col-md-3 col-lg-offset-1 hvrShadow brdMaterial o_my_sidebar</attribute>
+        </xpath>
+        <xpath expr="//div[@t-field='user_id.partner_id']" position="replace">
+            <div t-field="user_id.partner_id" t-options='{"widget": "contact", "fields": ["email", "mobile", "address", "name"]}'/>
+        </xpath>
+        <xpath expr="//div[@id='o_my_sidebar']" position="inside">
+            <t t-if="partner">
+                <t t-if="partner.parent_id">
+                    <t t-set="partners" t-value="partner.parent_id"/>
+                </t>
+                <t t-else="">
+                    <t t-set="partners" t-value="partner"/>
+                </t>
+                <t t-foreach="partners.child_ids" t-as="child">
+                    <div class="o_portal_my_details mb16">
+                        <h3 class="page-header"><t t-esc="child.type"/> <a t-att-href="'/my/account?partner=%s'%child.id if child else '/my/account'" class="btn btn-default btn-xs" style="float:right;">Change</a></h3>
+                        <div t-field="user_id.partner_id" t-options='{"widget": "contact", "fields": ["email", "mobile", "address", "name"]}'/>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <template id="portal.portal_my_details">
+        <t t-call="portal.portal_layout">
+            <t t-set="additional_title">Your Contact Details</t>
+            <div class="panel panel-primary hvrShadow brdMaterial">
+            <div class="panel-heading brdMaterial" style="text-align:center">
+                <span>Your Details</span>
+            </div>
+            <div class="panel-body hvrShadow brdMaterial">
+            <form action="/my/account" method="post">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="row o_portal_details">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div t-if="error_message" class="alert alert-danger">
+                                  <t t-foreach="error_message" t-as="err"><t t-esc="err"/><br /></t>
+                              </div>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="name">Your Name</label>
+                                <input type="text" name="name" class="form-control" t-att-value="name or partner.name" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('email') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="email">Email</label>
+                                <input type="email" name="email" class="form-control" t-att-value="email or partner.email" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="phone">Phone</label>
+                                <input type="tel" name="phone" class="form-control" t-att-value="phone or partner.phone" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('mobile') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="phone">Mobile</label>
+                                <input type="mobile" name="mobile" class="form-control" t-att-value="mobile or partner.mobile" />
+                            </div>
+
+                            <div class="clearfix" />
+                            <div t-attf-class="form-group #{error.get('company_name') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="company_name">Company Name</label>
+                                <p t-if="partner.commercial_partner_id.is_company" class="form-control" t-esc="partner.commercial_company_name"/>
+                                <input t-else="" type="text" name="company_name" class="form-control" t-att-value="company_name or partner.company_name"/>
+                            </div>
+                            <div t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="vat">VAT Number</label>
+                                <input type="text" name="vat" class="form-control" t-att-value="vat or partner.vat" />
+                            </div>
+
+                            <div class="clearfix" />
+                            <div t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="street">Street</label>
+                                <input type="text" name="street" class="form-control" t-att-value="street or partner.street"/>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('city') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="city">City</label>
+                                <input type="text" name="city" class="form-control" t-att-value="city or partner.city" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="zipcode">Zip / Postal Code</label>
+                                <input type="text" name="zipcode" class="form-control" t-att-value="zipcode or partner.zip" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="country_id">Country</label>
+                                <select name="country_id" class="form-control">
+                                    <option value="">Country...</option>
+                                    <t t-foreach="countries or []" t-as="country">
+                                        <option t-att-value="country.id" t-att-selected="country.id == int(country_id) if country_id else country.id == partner.country_id.id">
+                                            <t t-esc="country.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="state_id">State / Province</label>
+                                <select name="state_id" class="form-control">
+                                    <option value="">select...</option>
+                                    <t t-foreach="states or []" t-as="state">
+                                        <option t-att-value="state.id" style="display:none;" t-att-data-country_id="state.country_id.id" t-att-selected="state.id == partner.state_id.id">
+                                            <t t-esc="state.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('city_id') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="city_id">City</label>
+                                <select name="city_id" class="form-control">
+                                    <option value="">City...</option>
+                                    <t t-foreach="cites or []" t-as="city">
+                                        <option t-att-value="city.id" style="display:none;" t-att-data-country_id="city.country_id.id" t-att-selected="city.id == partner.city_id.id">
+                                            <t t-esc="city.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <input type="hidden" name="redirect" t-att-value="redirect"/>
+                        </div>
+                       <div class="clearfix">
+                            <button type="submit" class="btn btn-primary pull-right mb32 ">
+                                Confirm
+                                <span class="fa fa-long-arrow-right" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+            </div>
+        </t>
+    </template>
+    <template id="portal_my_home_ext" inherit_id="portal.portal_my_home" name="My Portal Extend">
+        <xpath expr="//div[hasclass=('o_portal_my_home')]" position="attributes">
+            <attribute name="class">o_portal_my_home hvrShadow brdMaterial</attribute>
+        </xpath>
+    </template>
+</data>
+</odoo>

@@ -1,0 +1,177 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_form_builder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 14:43+0000\n"
+"PO-Revision-Date: 2018-12-12 14:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/js/snippets.js:355
+#, python-format
+msgid "%s help block"
+msgstr "%s help block"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "<i class=\"fa fa-cogs\"/> Change action"
+msgstr "<i class=\"fa fa-cogs\"/> Промяна на действието"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "<i class=\"fa fa-eye-slash\"/> Hide field"
+msgstr "<i class=\"fa fa-eye-slash\"/> Скриване на полето"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "<i class=\"fa fa-hand-spock-o\"/> Add custom field"
+msgstr "<i class=\"fa fa-hand-spock-o\"/> Добавете персонализирано поле"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "<i class=\"fa fa-plus\"/> Add model fields"
+msgstr "<i class=\"fa fa-plus\"/> Добавете полета за модели"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/js/widgets.js:104
+#, python-format
+msgid "Add Model Fields"
+msgstr "Добави полета в модела "
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/xml/widgets.xml:15
+#, python-format
+msgid "Choose the new field for the form"
+msgstr "Ново поле във формата "
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/xml/widgets.xml:30
+#, python-format
+msgid "Choose this form's action"
+msgstr "Действие със формата "
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/js/snippets.js:348
+#, python-format
+msgid "Custom %s field"
+msgstr "Custom %s field"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Date"
+msgstr "Дата"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Date and time"
+msgstr "Дата и час"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Decimal number"
+msgstr "Десетично число"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "File upload"
+msgstr "Качване на файл"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/js/widgets.js:73
+#, python-format
+msgid "Form Settings"
+msgstr "От настройките "
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Google recaptcha"
+msgstr "Google recaptcha"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/xml/snippets.xml:219
+#, python-format
+msgid "Human?"
+msgstr "Human?"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Long text"
+msgstr "Дълъг текст"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Multiple selection"
+msgstr "Няколко селекции"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/js/snippets.js:351
+#, python-format
+msgid "Option %d"
+msgstr "Option %d"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/xml/snippets.xml:229
+#, python-format
+msgid "Send"
+msgstr "Send"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Set as required"
+msgstr "Задайте като необходимо"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Set default value"
+msgstr "Задайте стойност по подразбиране"
+
+#. module: website_form_builder
+#. openerp-web
+#: code:addons/website_form_builder/static/src/js/widgets.js:33
+#, python-format
+msgid "Set field's default value"
+msgstr "Установи стойност по подразбиране "
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Short text"
+msgstr "Кратък текст"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Single selection"
+msgstr "Единичен подбор"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.view_model_form
+msgid "Website Forms"
+msgstr "Формуляри за уебсайтове"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Whole number"
+msgstr "Цяло число"
+
+#. module: website_form_builder
+#: model:ir.ui.view,arch_db:website_form_builder.snippet_options
+msgid "Yes or not"
+msgstr "Да или не"
+

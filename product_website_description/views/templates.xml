@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_sale_products_description_products_description_fix" inherit_id="website_sale.products_description" active="False" customize_show="True" name="Description fix Product Description">
+        <xpath expr="//div[@itemprop='description']" position="replace">
+            <div itemprop="description" t-field="product.description"></div>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_product_description_fix" inherit_id="website_sale.product" customize_show="True" name="Description fix Product">
+        <xpath expr="//div/hr[@t-if='product.description_sale']" position="after">
+            <dev>
+                <p t-field="product.description" class="text-muted" />
+            </dev>
+        </xpath>
+        <xpath expr="//div/hr[@t-if='product.description_sale']" position="replace">
+            <hr t-if="product.description" />
+        </xpath>
+        <xpath expr="//t[@t-set='head']" position="inside">
+            <t t-if="not product.description_sale">
+                <meta property="og:description" t-att-content="product.description" />
+                <meta name="twitter:description" t-att-content="product.description" />
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
